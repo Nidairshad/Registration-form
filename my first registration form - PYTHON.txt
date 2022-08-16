@@ -1,0 +1,74 @@
+QUESTION 1 TASK 1 PROJECT 3:
+
+
+import tkinter as tk
+from tkinter import *
+
+form =tk.Tk()
+
+form.title("Registration Form")
+
+form.geometry("400x100")
+
+a = Label (form , text = "Registration Form", font =("Times New Roman", 25 , ))
+a.grid(row=0 ,column=0)
+      
+name = Label(form,text ="Full Name:" ,fg="black" ,font=('Arial',10))
+name.grid(row= 1,column =0)
+textbox1=Entry(form,fg ="blue", width =30)
+textbox1.grid(row=1,column=1)
+   
+email = Label(form,text ="Email:" ,fg="black" ,font=('Arial',10))
+email.grid(row= 2,column =0)
+textbox2=Entry(form,fg ="blue",width =30)
+textbox2.grid(row=2,column=1)
+
+gender = StringVar()#for setting gender data type as string
+gender= Label(form,text ="Gender:" ,fg="black" ,font=('Arial',10)) #gender title
+gender.grid(row= 3,column =0)
+
+g1 = Radiobutton(form, text ="Male" ,variable= "gender" ,value = 1 , font = "time 10")#male button
+g1.deselect()
+g1.place(x = 260 , y = 340)
+g1.grid(row= 3, column=1)
+g2 = Radiobutton(form, text ="Female" ,variable= "gender" , value = 2, font = "time 10")#female button
+g2.deselect()
+g2.place(x = 360, y = 340)
+g2.grid(row = 3 , column =2 )
+
+country = Label(form, text = "Country:",fg="black" ,font=('Arial',10))
+country.grid(row =4, column =0)
+
+from tkinter import ttk
+
+country = Label(form, text = "Country:",fg="black" ,font=('Arial',10))
+country.grid(row =4, column =0)
+places =tk.StringVar()
+places_choosen=ttk.Combobox(form,width =15,textvariable=places)
+places_choosen['value']=['Afghanistan','Pakistan','Palestine','Saudi Arabia','Turkey']
+places_choosen.grid(row=4 ,column =1)
+places_choosen.current(1)
+
+programming1= StringVar() #declared data type for programming
+programming2= StringVar() #declared data type for programming
+programming= Label(form,text ="Programming:" ,fg="black" ,font=('Arial',10))
+programming.grid(row= 5,column =0)
+
+a1 = Checkbutton(form, text ="Java" ,variable= "programming1" , font = "time 10")
+a1.deselect()
+a1.place(x = 260 , y = 445)
+a1.grid(row= 5, column=1)
+
+a2 = Checkbutton(form, text ="Python" ,variable= "programming2" , font = "time 10")
+a2.deselect()
+a2.place(x = 360, y = 340)
+a2.grid(row = 5 , column =2)
+
+def click():
+    print ("Form Submitted")
+
+btn=Button(form,text="Submit",bg="red",fg="black")
+btn.config(command= click)
+btn.grid(row=6,column=0)
+
+form.mainloop()
